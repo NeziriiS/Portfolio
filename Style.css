@@ -1,0 +1,217 @@
+html 
+{
+   font-size: 16px; 
+}
+body 
+{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;  /* klasičan web-font */
+  color: rgb(67, 66, 65);
+  background: rgb(255, 228, 204);                           /* nema gradijenata */
+  line-height: 1.5;
+}
+
+.wrapper 
+{
+  max-width: 1000px;        /* skromna širina */
+  margin: 0 auto;
+  padding: 0 16px;          /* malo “prostora” od ivice */
+}
+
+/* ===== Header / Navigacija (Flex) ===== */
+header 
+{
+  position: sticky;         /* ostaje vidljiv pri skrolu */
+  top: 0;
+  background:rgb(255, 228, 204);      /* obična svetla pozadina */
+  border-bottom: 1px solid #988282;
+}
+
+nav {
+  display: flex;            /* FLEX upotreba #1 */
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.brand {
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;            /* FLEX- da se lepo poklopi uzsadrzaj sajta -upotreba #2 */
+  gap: 8px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #0a0a0a;
+  padding: 6px 10px;
+  border: 1px solid transparent;  /* bez specijalnih efekata */
+  border-radius: 4px;
+}
+
+/* Aktivna stranica i hover: vrlo jednostavno */
+.nav-links a[aria-current="page"] {
+  background: rgb(255, 255, 255);      /* blaga plava */
+  border-color: rosybrown;
+  color:rgb(81, 12, 12);
+}
+.nav-links a:hover {
+  background: rosybrown;
+}
+
+/* ===== Panel (kutija sa sadržajem) ===== */
+.panel {
+  background: rgb(257, 227, 207);
+  border: 1px solid rgb(257, 227, 207);
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+h1 
+{ 
+  font-size: 1.6rem; 
+  margin: 8px 0 12px; 
+}
+h2 
+{ 
+  font-size: 1.25rem; 
+  margin: 8px 0 10px; 
+}
+p  
+{ 
+  margin: 6px 0 10px;
+  color: rgb(22, 22, 22); 
+}
+.small 
+{ 
+  color: rgb(9, 9, 9); 
+  font-size: big; 
+}
+
+/* ===== ABOUT stranica ===== */
+.about-grid 
+{
+  display: grid;                    /* GRID upotreba #1 */
+  gap: 16px;
+}
+.about-grid img 
+{
+  width: 100%;
+  height: auto;
+  border: 1px solid wheat;          /* običan okvir */
+  border-radius: 4px;
+}
+
+/* ===== CV ===== */
+.cv-section {
+  background: #fce8c9; /* tvoja peach nijansa */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.experience-item {
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background: #fff8ec;  /* malo svetlija nijansa da se odvoji */
+  border-left: 4px solid #ff99b0; /* akcenat (baby pink) */
+  border-radius: 6px;
+}
+
+.experience-item h3 {
+  margin: 0 0 5px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.experience-item p {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+
+/* ===== Portfolio kartice (Grid + skroman stil) ===== */
+.cards 
+{
+  display: grid;                    /* GRID upotreba #4 */
+  gap: 12px;
+}
+.card 
+{
+  border: 1px solid wheat;
+  border-radius: 6px;
+  overflow: hidden;
+  background: wheat;
+}
+.card img 
+{
+  width: 35%;
+  height: auto;
+  display: block;
+}
+.card .content 
+{
+  padding: 12px;
+}
+.tags 
+{
+  display: flex;                    /* FLEX upotreba #4 */
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.tag 
+{
+  font-size: 0.85rem;
+  background: seashell;              /* ista blaga plava */
+  color:black;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.card a 
+{
+  color: black;                   /* klasična plava link boja */
+  text-decoration: none;
+}
+.card a:hover 
+{
+  text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+footer 
+{
+  margin-top: 24px;
+  padding: 16px 0 32px;
+  color: slategray;
+  text-align: center;
+  border-top: 1px solid slategrey;
+}
+
+/* ===== Media queries (mobile-first) ===== */
+/* 375px je podrazumevano. Raširimo raspored tek od 768 i 1024. */
+
+/* Tablet ≥ 768px */
+@media (min-width: 768px) 
+{
+  .about-grid 
+  {
+    grid-template-columns: 1fr 1fr;   /* 2 kolone umesto 1 */
+  }
+  .cards 
+  {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop ≥ 1024px */
+@media (min-width: 1024px) 
+{
+  .cards 
+  {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
